@@ -20,7 +20,12 @@ public class BetterStudentManager {
 
     public void removeStudent(String name) {
         // This method should remove the student with the given name from the list of students
-        students.removeIf(student -> student.getName().equals(name));
+        for (int i = 0; i < students.size(); i++) {
+            if (students.get(i).name.equals(name)) {
+                students.remove(i);
+                break;
+            }
+        }
     }
 
     public String getStudentList() {
@@ -35,7 +40,7 @@ public class BetterStudentManager {
         //
         // Replace the following line with your implementation
         StringBuilder result = new StringBuilder();
-        for(Student student : students) {
+        for (Student student : students) {
             result.append(student.name)
                     .append(" ")
                     .append(student.grade)
